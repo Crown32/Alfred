@@ -1,12 +1,22 @@
 import {FiAtSign,FiLock, FiEye, FiEyeOff} from 'react-icons/fi';
 import { useState, useRef } from 'react';
 import LoginLayout from './LoginLayout';
+import { useAuth } from '../../contexts/AuthContext';
 
 
 export default function Login() {
+  const { login, logout } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await login(email, password);
+    await logout();
+  }
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -38,7 +48,7 @@ export default function Login() {
               <span className='label-text ml-4 mt-[2px]'>Lembre-se de mim</span>
             </label>
           </div>
-          <button type='submit' className='btn btn-primary btn-block mt-8'>Entrar</button>
+          <button type='submit' className='btn btn-primary btn-block mt-8' onClick={handleSubmit}>Entrar</button>
         </form>
         <div className='w-screen items-center justify-center flex'>
           <small className=''>Ainda não possui uma conta? </small>

@@ -1,5 +1,10 @@
+import { AuthContextProvider } from '../contexts/AuthContext'
+import Signup from './auth/Signup'
+
 export default function App(pros) { 
   return (
-    <h1 className='btn btn-success'>Olá mundo</h1>
+    <AuthContextProvider>
+      <Signup></Signup>
+    </AuthContextProvider>
   )
  }

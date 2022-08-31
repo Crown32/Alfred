@@ -1,12 +1,23 @@
 import {FiAtSign,FiLock, FiEye, FiEyeOff, FiUser} from 'react-icons/fi';
 import { useState, useRef } from 'react';
 import LoginLayout from './LoginLayout';
+import { useAuth } from '../../contexts/AuthContext';
 
-export default function Register() {
+export default function Signup() {
+  const { signup,logout } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const nameRef = useRef(null);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const name = nameRef.current.value;
+    await signup(email, password, name);
+    await logout();
+  }
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -33,7 +44,7 @@ export default function Register() {
               <FiEye className='absolute top-5 right-2 text-gray-500 cursor-pointer' onClick={handleShowPassword}></FiEye>
             }
           </div>
-          <button className='btn btn-primary btn-block mt-7'>Registrar</button>
+          <button className='btn btn-primary btn-block mt-7' onClick={handleSubmit}>Registrar</button>
         </form>
         <div className='w-screen items-center justify-center flex'>
           <small className=''>Já possui uma conta?</small>
