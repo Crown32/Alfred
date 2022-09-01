@@ -2,7 +2,7 @@ import {FiAtSign,FiLock, FiEye, FiEyeOff} from 'react-icons/fi';
 import { useState, useRef } from 'react';
 import LoginLayout from '../components/LoginLayout';
 import { useAuth } from '../contexts/AuthContext';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import {useAlert} from '../contexts/AlertContext';
 
 export default function Login() {
@@ -64,7 +64,7 @@ export default function Login() {
         <div className='w-screen items-center justify-center flex'>
           <small className=''>Ainda não possui uma conta? </small>
           <small className='text-blue-600 ml-1 font-bold'>
-            <a href="/signup">Registre-se</a>
+            <Link to="/signup">Registre-se</Link>
           </small>
         </div>
       </LoginLayout>

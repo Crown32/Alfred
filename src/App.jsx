@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './contexts/AuthContext'
 import { AlertContextProvider } from './contexts/AlertContext'
 import Alert from './components/Alert'
+import Home from './pages/Home'
+import ProtectedRoute from './components/ProtectedRoute'
 
 import Signup from './pages/Signup'
 import Login from './pages/Login'
@@ -14,6 +16,7 @@ export default function App(pros) {
           <Routes>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           </Routes>
         </Router>
         <Alert/>
