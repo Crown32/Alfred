@@ -54,7 +54,7 @@ export default function Alert() {
       <div className={`alert shadow-xl w-[95%] absolute mx-auto inset-x-0 transition-all duration-500 ${showAlert?"bottom-0":"-bottom-16"} ${alert?alertTypes[alert.type]:""}`}>
         <div className='relative w-full'>
           {alert?icons[alert.type]:null}
-          <p>{alert?alert.message:null}</p>
+          <p className='text-sm'>{alert?alert.message:null}</p>
         </div>
       </div>
     </div>

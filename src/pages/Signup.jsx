@@ -28,10 +28,28 @@ export default function Signup() {
       });
       navigate('/');
     } catch (err) {
-      showAlert({
-        message: "Erro ao registrar, verifique seus dados",
-        type: 'error'
-      });
+      switch (err.code) {
+        case 'auth/email-already-in-use':
+          showAlert({
+            message: 'Este email já está sendo usado',
+            type: 'warning'
+          });
+        break;
+          
+        case 'auth/weak-password':
+          showAlert({
+            message: 'A senha precisa ter no mínimo 6 caracteres',
+            type: 'warning'
+          });
+        break;
+
+        default:
+          showAlert({
+            message: 'Erro ao registrar, tente novamente',
+            type: 'error'
+          });
+      }
+
     }
   }
 
@@ -72,5 +90,3 @@ export default function Signup() {
     );
 } 
 
-
-//TODO: Tratar os outros erros recebidos pelo firebase

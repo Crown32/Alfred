@@ -70,5 +70,3 @@ export default function Login() {
       </LoginLayout>
     );
 } 
-
-//TODO: Tratar os outros erros recebidos pelo firebase
