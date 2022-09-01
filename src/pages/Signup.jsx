@@ -1,10 +1,14 @@
 import {FiAtSign,FiLock, FiEye, FiEyeOff, FiUser} from 'react-icons/fi';
 import { useState, useRef } from 'react';
-import LoginLayout from './LoginLayout';
-import { useAuth } from '../../contexts/AuthContext';
+import LoginLayout from '../components/LoginLayout';
+import { useAuth } from '../contexts/AuthContext';
+import {useNavigate} from 'react-router-dom';
+import {useAlert} from '../contexts/AlertContext';
 
 export default function Signup() {
-  const { signup,logout } = useAuth();
+  const {showAlert} = useAlert();
+  const { signup } = useAuth();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -15,8 +19,20 @@ export default function Signup() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const name = nameRef.current.value;
-    await signup(email, password, name);
-    await logout();
+
+    try {
+      await signup(email, password, name);
+      showAlert({
+        message: "Registrado com sucesso!",
+        type: 'success'
+      });
+      navigate('/');
+    } catch (err) {
+      showAlert({
+        message: "Erro ao registrar, verifique seus dados",
+        type: 'error'
+      });
+    }
   }
 
   function handleShowPassword() {
@@ -55,3 +71,6 @@ export default function Signup() {
       </LoginLayout>
     );
 } 
+
+
+//TODO: Tratar os outros erros recebidos pelo firebase

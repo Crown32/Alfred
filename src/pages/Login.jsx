@@ -1,11 +1,14 @@
 import {FiAtSign,FiLock, FiEye, FiEyeOff} from 'react-icons/fi';
 import { useState, useRef } from 'react';
-import LoginLayout from './LoginLayout';
-import { useAuth } from '../../contexts/AuthContext';
-
+import LoginLayout from '../components/LoginLayout';
+import { useAuth } from '../contexts/AuthContext';
+import {useNavigate} from 'react-router-dom';
+import {useAlert} from '../contexts/AlertContext';
 
 export default function Login() {
-  const { login, logout } = useAuth();
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const {showAlert} = useAlert();
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -14,8 +17,16 @@ export default function Login() {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    await login(email, password);
-    await logout();
+
+    try {
+      await login(email, password);
+      navigate('/');
+    } catch (err) {
+      showAlert({
+        message: "Erro ao fazer login, verifique seus dados",
+        type: 'error'
+      });
+    }
   }
 
   function handleShowPassword() {
@@ -53,9 +64,11 @@ export default function Login() {
         <div className='w-screen items-center justify-center flex'>
           <small className=''>Ainda não possui uma conta? </small>
           <small className='text-blue-600 ml-1 font-bold'>
-            <a href="/register">Registre-se</a>
+            <a href="/signup">Registre-se</a>
           </small>
         </div>
       </LoginLayout>
     );
 } 
+
+//TODO: Tratar os outros erros recebidos pelo firebase

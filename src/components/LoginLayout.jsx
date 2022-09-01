@@ -1,4 +1,4 @@
-import loginImage from '../../images/login_image.svg'
+import loginImage from '../images/login_image.svg'
 
 
 export default function LoginLayout({children}) {
