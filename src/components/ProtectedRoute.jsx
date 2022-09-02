@@ -10,8 +10,6 @@ export default function ProtectedRoute({ children }) {
   useEffect(() => {
     if (!user) {
       navigate('/login');
-    }else{
-      navigate('/');
     }
   }
   //Else aqui para que o usuário logado não acesse o login e o signup
