@@ -23,14 +23,13 @@ export default function Avatar(props) {
         </div> 
       </label>
     <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-      <li><a><AiOutlineUser className='w-5 h-5'/><Link to="/perfil">Perfil</Link></a></li>
-      <li><a><BiCog className='w-5 h-5'/>Ajustes</a></li>
+      <li><Link to="/perfil"><AiOutlineUser className='w-5 h-5'/>Perfil</Link></li>
+      <li><Link to="/"><BiCog className='w-5 h-5'/>Ajustes</Link></li>
       <li></li>
-      <li className='text-error' onClick={handleLogout}><a><BiLogOut className='w-5 h-5'/>Sair</a></li>
+      <li className='text-error'><Link onClick={handleLogout} to="/login"><BiLogOut className='w-5 h-5'/>Sair</Link></li>
     </ul>
   </div>
   )
 }
 
-//Todo: Arrumar os links dentro das tags <a></a> para evitar redundância
 //TODO: Colocar icone para troca de tema
