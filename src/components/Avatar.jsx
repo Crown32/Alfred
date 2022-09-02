@@ -7,7 +7,7 @@ import {BiLogOut, BiCog} from 'react-icons/bi';
 
 export default function Avatar(props) {
 
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
 
   const handleLogout = () => {
     logout();
