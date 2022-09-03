@@ -50,7 +50,7 @@ export default function Alert() {
   } , [alert, removeAlert]);
 
   return (
-    <div className={`overflow-hidden absolute bottom-4 h-14 w-screen ${alert?"":"hidden"}`}>
+    <div className={`overflow-hidden fixed bottom-4 h-14 w-screen ${alert?"":"hidden"}`}>
       <div className={`alert shadow-xl w-[95%] absolute mx-auto inset-x-0 transition-all duration-500 ${showAlert?"bottom-0":"-bottom-16"} ${alert?alertTypes[alert.type]:""}`}>
         <div className='relative w-full'>
           {alert?icons[alert.type]:null}
