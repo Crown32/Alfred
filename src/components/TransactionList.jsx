@@ -8,7 +8,7 @@ export default function TransactionList() {
         <h1 className='text-lg font-bold'>Suas últimas transações</h1>
         <Link to="/plannings" className='text-xs text-primary'>Todas transações</Link>
       </div>
-      <ul className=' pt-4 pb-2 rounded-lg bg-base-200'>
+      <ul className=' pt-4 pb-2 rounded-lg bg-base-200 shadow-lg'>
         <TransactionItem />
         <TransactionItem />
         <TransactionItem />
