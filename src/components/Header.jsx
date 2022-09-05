@@ -12,7 +12,7 @@ export default function Header(props) {
 
   return (
     <header className='h-32 w-screen bg-base-200 flex'>
-      <div className="form-control w-40 ml-4 mt-2">
+      <div className="form-control w-48 ml-4 mt-2">
         <label className="label">
           <span className="label-text text-base font-bold">Seu saldo</span>
         </label>
@@ -32,5 +32,3 @@ export default function Header(props) {
     </header>
   )
 }
-
-//TODO: Arrumar a responsividade do valor do saldo

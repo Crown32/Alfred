@@ -10,7 +10,7 @@ export default function TransactionItem() {
         <span className='text-xs'>12/08/22 18:32</span>
       </div>
       </div>
-      <div class="badge badge-outline badge-primary mb-1 text-xs">NuBank</div>
+      <div className="badge badge-outline badge-primary mb-1 text-xs">NuBank</div>
       <div className='flex flex-col'>        
         <span className='text-xs text-red-500'>- R$ 20,00</span>
       </div>

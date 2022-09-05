@@ -10,7 +10,7 @@ export default function PlanningCard() {
               <h1 className='text-sm font-bold'>Alimentação</h1>
               <span className='text-xs font-bold'>R$100,00 restantes</span>
             </div>
-            <progress class="progress progress-primary w-full" value="40" max="100"></progress>
+            <progress className="progress progress-primary w-full" value="40" max="100"></progress>
             <div>
               <span className='text-xs'>R$100,00</span>
               <span className='text-xs mx-1'>de</span>
