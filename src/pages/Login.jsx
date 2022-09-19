@@ -20,6 +20,10 @@ export default function Login() {
 
     try {
       await login(email, password);
+      showAlert({
+        message: "Bem vindo de volta!",
+        type: 'success'
+      });
       navigate('/');
     } catch (err) {
       showAlert({
