@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PlanningCard from './BudgetCard'
 
-export default function PlanningList() {
+export default function BudgetList() {
   return (
     <div className='w-screen p-5'>
       <div className='mb-3 flex w-full justify-between items-baseline'>

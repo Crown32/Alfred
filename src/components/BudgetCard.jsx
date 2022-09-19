@@ -1,6 +1,7 @@
 import { IoFastFoodOutline } from 'react-icons/io5';
+import MoneyText from './MoneyText';
 
-export default function PlanningCard() {
+export default function BudgetCard() {
     return (
       <div className='card w-full shadow-lg bg-base-200 mb-3 p-4'>
         <div className='flex items-center'>
@@ -8,13 +9,13 @@ export default function PlanningCard() {
           <div className='ml-3 w-full'>
             <div className='flex justify-between items-end'>
               <h1 className='text-sm font-bold'>Alimentação</h1>
-              <span className='text-xs font-bold'>R$100,00 restantes</span>
+              <span className='text-xs font-bold'><MoneyText value="100,00"/> Restantes</span>
             </div>
             <progress className="progress progress-primary w-full" value="40" max="100"></progress>
             <div>
-              <span className='text-xs'>R$100,00</span>
+              <MoneyText value="100,00" className="text-xs"/>
               <span className='text-xs mx-1'>de</span>
-              <span className='text-xs'>R$200,00</span>
+              <MoneyText value="200,00" className="text-xs"/>
             </div>
           </div>
         </div>
