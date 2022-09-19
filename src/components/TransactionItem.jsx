@@ -1,4 +1,5 @@
 import {AiOutlineQuestionCircle} from 'react-icons/ai';
+import MoneyText from './MoneyText';
 
 export default function TransactionItem() {
   return (
@@ -12,7 +13,7 @@ export default function TransactionItem() {
       </div>
       <div className="badge badge-outline badge-primary mb-1 text-xs">NuBank</div>
       <div className='flex flex-col'>        
-        <span className='text-xs text-red-500'>- R$ 20,00</span>
+        <MoneyText value="20,00" className='text-xs' type="in"/>
       </div>
     </li>
   )

@@ -7,7 +7,7 @@ import {useAlert} from '../contexts/AlertContext';
 
 export default function Signup() {
   const {showAlert} = useAlert();
-  const { signup } = useAuth();
+  const { signup, updateName } = useAuth();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef(null);
@@ -21,7 +21,8 @@ export default function Signup() {
     const name = nameRef.current.value;
 
     try {
-      await signup(email, password, name);
+      await signup(email, password);
+      await updateName(name);
       showAlert({
         message: "Registrado com sucesso!",
         type: 'success'
